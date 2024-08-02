@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: users_segments
+  - name: users_segmentation_features
     description: "Aggregates user data including age, country, state, nearest distribution center, return rate, and profit level"
     columns:
       - name: user_id
