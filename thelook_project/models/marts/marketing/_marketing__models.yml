@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: users_segments
+    description: "Aggregates user data including age, country, state, nearest distribution center, return rate, and profit level"
+    columns:
+      - name: user_id
+        description: "The ID of the user"
+        tests:
+          - not_null
+          - unique
+      - name: age
+        description: "Age of the user"
+        tests:
+          - not_null
+      - name: country
+        description: "Country of the user"
+        tests:
+          - not_null
+      - name: state
+        description: "State of the user"
+        tests:
+          - not_null
+      - name: nearest_distribution_center
+        description: "ID of the nearest distribution center for the user"
+        tests:
+          - not_null
+      - name: return_rate
+        description: "Product return rate in the last year for the user"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
+      - name: profit_level
+        description: "user profit level in the last year"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3]

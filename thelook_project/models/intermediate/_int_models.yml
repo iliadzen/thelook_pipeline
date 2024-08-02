@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: nearest_distribution_centers
+    description: "Calculates the nearest distribution center for each user."
+    columns:
+      - name: user_id
+        description: "The ID of the user."
+        tests:
+          - not_null
+          - unique
+      - name: dc_id
+        description: "The ID of the nearest distribution center."
+        tests:
+          - not_null

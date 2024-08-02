@@ -1,0 +1,36 @@
+version: "3.5"
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "dbt"
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - thelook_network
+
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.4.7
+    entrypoint: /bin/bash
+    volumes:
+      - ./thelook_project:/usr/app/dbt
+      - ~/.dbt:/root/.dbt
+    command: -c "dbt seed && dbt run && dbt test"
+    depends_on:
+      - database
+    environment:
+      DBT_PROFILE: default
+      DBT_TARGET: dev
+    networks:
+      - thelook_network
+
+networks:
+  thelook_network:
+    driver: bridge
+
+volumes:
+  postgres-db-volume:

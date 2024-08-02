@@ -1,0 +1,50 @@
+name: 'thelook_project'
+version: '1.0.0'
+config-version: 2
+
+profile: 'thelook_project'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  thelook_project:
+    staging:
+      +materialized: view
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  thelook_project:
+    inventory_items:
+      +column_types:
+        created_at: date
+        sold_at: date
+    events:
+      +column_types:
+        created_at: date
+    users:
+      +column_types:
+        created_at: date
+    orders:
+      +column_types:
+        created_at: date
+        returned_at: date
+        shipped_at: date
+        delivered_at: date
+    order_items:
+      +column_types:
+        created_at: date
+        shipped_at: date
+        delivered_at: date
+        returned_at: date

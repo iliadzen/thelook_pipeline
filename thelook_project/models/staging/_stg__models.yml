@@ -1,0 +1,176 @@
+version: 2
+
+models:
+  - name: inventory_items
+    description: "Table containing inventory item details."
+    columns:
+      - name: id
+        description: "Primary key for inventory items."
+      - name: product_id
+        description: "ID of the product."
+      - name: created_at
+        description: "Timestamp when the inventory item was created."
+      - name: sold_at
+        description: "Timestamp when the inventory item was sold."
+      - name: cost
+        description: "Cost of the inventory item."
+      - name: product_category
+        description: "Category of the product."
+      - name: product_name
+        description: "Name of the product."
+      - name: product_brand
+        description: "Brand of the product."
+      - name: product_retail_price
+        description: "Retail price of the product."
+      - name: product_department
+        description: "Department of the product."
+      - name: product_sku
+        description: "SKU of the product."
+      - name: product_distribution_center_id
+        description: "ID of the distribution center for the product."
+
+  - name: products
+    description: "Table containing product details."
+    columns:
+      - name: id
+        description: "Primary key for products."
+      - name: cost
+        description: "Cost of the product."
+      - name: category
+        description: "Category of the product."
+      - name: name
+        description: "Name of the product."
+      - name: brand
+        description: "Brand of the product."
+      - name: retail_price
+        description: "Retail price of the product."
+      - name: department
+        description: "Department of the product."
+      - name: sku
+        description: "SKU of the product."
+      - name: distribution_center_id
+        description: "ID of the distribution center for the product."
+
+  - name: events
+    description: "Table containing event details."
+    columns:
+      - name: id
+        description: "Primary key for events."
+      - name: user_id
+        description: "ID of the user who generated the event."
+      - name: sequence_number
+        description: "Sequence number of the event."
+      - name: session_id
+        description: "Session ID of the event."
+      - name: created_at
+        description: "Timestamp when the event was created."
+      - name: ip_address
+        description: "IP address of the user who generated the event."
+      - name: city
+        description: "City of the user who generated the event."
+      - name: state
+        description: "State of the user who generated the event."
+      - name: postal_code
+        description: "Postal code of the user who generated the event."
+      - name: browser
+        description: "Browser used by the user."
+      - name: traffic_source
+        description: "Traffic source of the event."
+      - name: uri
+        description: "URI of the event."
+      - name: event_type
+        description: "Type of the event."
+
+  - name: users
+    description: "Table containing user details."
+    columns:
+      - name: id
+        description: "Primary key for users."
+      - name: first_name
+        description: "First name of the user."
+      - name: last_name
+        description: "Last name of the user."
+      - name: email
+        description: "Email address of the user."
+      - name: age
+        description: "Age of the user."
+      - name: gender
+        description: "Gender of the user."
+      - name: state
+        description: "State of the user."
+      - name: street_address
+        description: "Street address of the user."
+      - name: postal_code
+        description: "Postal code of the user."
+      - name: city
+        description: "City of the user."
+      - name: country
+        description: "Country of the user."
+      - name: latitude
+        description: "Latitude of the user's location."
+      - name: longitude
+        description: "Longitude of the user's location."
+      - name: traffic_source
+        description: "Traffic source of the user."
+      - name: created_at
+        description: "Timestamp when the user was created."
+
+  - name: orders
+    description: "Table containing order details."
+    columns:
+      - name: order_id
+        description: "Primary key for orders."
+      - name: user_id
+        description: "ID of the user who made the order."
+      - name: status
+        description: "Status of the order."
+      - name: gender
+        description: "Gender associated with the order."
+      - name: created_at
+        description: "Timestamp when the order was created."
+      - name: returned_at
+        description: "Timestamp when the order was returned."
+      - name: shipped_at
+        description: "Timestamp when the order was shipped."
+      - name: delivered_at
+        description: "Timestamp when the order was delivered."
+      - name: num_of_item
+        description: "Number of items in the order."
+
+  - name: distribution_centers
+    description: "Table containing distribution center details."
+    columns:
+      - name: id
+        description: "Primary key for distribution centers."
+      - name: name
+        description: "Name of the distribution center."
+      - name: latitude
+        description: "Latitude of the distribution center."
+      - name: longitude
+        description: "Longitude of the distribution center."
+
+  - name: order_items
+    description: "Table containing order item details."
+    columns:
+      - name: id
+        description: "Primary key for order items."
+      - name: order_id
+        description: "ID of the order."
+      - name: user_id
+        description: "ID of the user who made the order."
+      - name: product_id
+        description: "ID of the product."
+      - name: inventory_item_id
+        description: "ID of the inventory item."
+      - name: status
+        description: "Status of the order item."
+      - name: created_at
+        description: "Timestamp when the order item was created."
+      - name: shipped_at
+        description: "Timestamp when the order item was shipped."
+      - name: delivered_at
+        description: "Timestamp when the order item was delivered."
+      - name: returned_at
+        description: "Timestamp when the order item was returned."
+      - name: sale_price
+        description: "Sale price of the order item."

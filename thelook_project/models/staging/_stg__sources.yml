@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: thelook
+    description: "Raw data from TheLook dataset"
+    database: dbt
+    schema: public
+    tables:
+      - name: distribution_centers
+      - name: users
+      - name: orders
+      - name: order_items
+      - name: inventory_items
+      - name: products
+      - name: events
